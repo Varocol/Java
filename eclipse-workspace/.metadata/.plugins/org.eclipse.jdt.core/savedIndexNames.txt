@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\Varocol\Desktop\java\eclipse-workspace\.metadata\.plugins\org.eclipse.jdt.core
+1704979481.index
+1695662857.index
+3692485691.index

@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Hello",
+            "request": "launch",
+            "mainClass": "homework.上机验证.Hello",
+            "projectName": "vscode_bb19a76e"
+        },
+        {
+            "type": "java",
+            "name": "Launch Hello",
+            "request": "launch",
+            "mainClass": "Hello",
+            "projectName": "vscode_bb19a76e"
+        },
+        {
+            "type": "java",
+            "name": "Launch MainClass",
+            "request": "launch",
+            "mainClass": "MainClass",
+            "projectName": "vscode_bb19a76e"
+        },
+        {
+            "type": "java",
+            "name": "Launch External Terminal",
+            "request": "launch",
+            "console": "externalTerminal",
+            "mainClass": "${file}"
+        }
+    ]
+}
