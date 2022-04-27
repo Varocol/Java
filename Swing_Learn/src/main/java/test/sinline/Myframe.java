@@ -113,22 +113,34 @@ public class Myframe extends JFrame {
                 int x = e.getX();
                 int y = e.getY();
                 System.out.println(x + " " + y);
-                if (switch_button.getText().equals("相对移动")) {
-                    coordinate_system.x_offset =
-                            x - coordinate_system.getWidth() / 2.0;
-                    coordinate_system.y_offset =
-                            y - coordinate_system.getHeight() / 2.0;
-                    sin_curve.x_offset = x - sin_curve.getWidth() / 2.0;
-                    sin_curve.y_offset = y - sin_curve.getHeight() / 2.0;
-                }
                 if (e.getPreciseWheelRotation() > 0) {
                     if (coordinate_system.pixelWidth - coordinate_system.pixelWidth / sin_curve.scale < 5) {
                         coordinate_system.pixelWidth = 5;
                     } else {
                         coordinate_system.pixelWidth -= coordinate_system.pixelWidth / sin_curve.scale;
                         sin_curve.scale = Math.max(sin_curve.scale - 1, 0);
+                        if (switch_button.getText().equals("相对移动")) {
+                            coordinate_system.x_offset =
+                                    coordinate_system.getWidth() / 2.0 - x + (x - coordinate_system.getWidth() / 2.0 + coordinate_system.x_offset) * ((sin_curve.scale - 1) * 1.0 / sin_curve.scale);
+                            coordinate_system.y_offset =
+                                    coordinate_system.getHeight() / 2.0 - y + (y - coordinate_system.getHeight() / 2.0 + coordinate_system.y_offset) * ((sin_curve.scale - 1) * 1.0 / sin_curve.scale);
+                            sin_curve.x_offset =
+                                    sin_curve.getWidth() / 2.0 - x + (x - sin_curve.getWidth() / 2.0 + sin_curve.x_offset) * ((sin_curve.scale - 1) * 1.0 / sin_curve.scale);
+                            sin_curve.y_offset =
+                                    sin_curve.getHeight() / 2.0 - y + (y - sin_curve.getHeight() / 2.0 + sin_curve.y_offset) * ((sin_curve.scale - 1) * 1.0 / sin_curve.scale);
+                        }
                     }
                 } else {
+                    if (switch_button.getText().equals("相对移动")) {
+                        coordinate_system.x_offset =
+                                coordinate_system.getWidth() / 2.0 - x + (x - coordinate_system.getWidth() / 2.0 + coordinate_system.x_offset) * ((sin_curve.scale + 1) * 1.0 / sin_curve.scale);
+                        coordinate_system.y_offset =
+                                coordinate_system.getHeight() / 2.0 - y + (y - coordinate_system.getHeight() / 2.0 + coordinate_system.y_offset) * ((sin_curve.scale + 1) * 1.0 / sin_curve.scale);
+                        sin_curve.x_offset =
+                                sin_curve.getWidth() / 2.0 - x + (x - sin_curve.getWidth() / 2.0 + sin_curve.x_offset) * ((sin_curve.scale + 1) * 1.0 / sin_curve.scale);
+                        sin_curve.y_offset =
+                                sin_curve.getHeight() / 2.0 - y + (y - sin_curve.getHeight() / 2.0 + sin_curve.y_offset) * ((sin_curve.scale + 1) * 1.0 / sin_curve.scale);
+                    }
                     coordinate_system.pixelWidth += coordinate_system.pixelWidth / sin_curve.scale;
                     sin_curve.scale += 1;
                 }
@@ -169,7 +181,7 @@ public class Myframe extends JFrame {
         sin_curve.omega =
                 Math.max(Integer.parseInt(setomega.getText()), 0);
         sin_curve.phi = Math.max(Integer.parseInt(setphi.getText()), 0);
-        sin_curve.scale = Math.max(Integer.parseInt(setscale.getText()), 0);
+        sin_curve.scale = Math.max(Integer.parseInt(setscale.getText()), 1);
         sin_curve.color = Color.decode(setcolor.getText());
         sin_curve.line_width =
                 Math.max(Integer.parseInt(setlinewidth.getText()), 1);
