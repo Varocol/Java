@@ -12,7 +12,8 @@ public class l22 {
 class l22_frame extends JFrame {
 
     JPanel panel1 = new JPanel();
-    mycontrol mycontrol = new mycontrol();
+    mypicture mypicture = new mypicture("img/北华大学嵌入式实验室图标.png",Color.WHITE,false);
+
     public l22_frame(String title) {
         super(title);
         Init();
@@ -25,8 +26,8 @@ class l22_frame extends JFrame {
 
     void Init() {
 
-        mycontrol.setPreferredSize(new Dimension(200, 200));
-        panel1.add(mycontrol);
+        mypicture.setPreferredSize(new Dimension(400, 400));
+        panel1.add(mypicture);
         setContentPane(panel1);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 600);

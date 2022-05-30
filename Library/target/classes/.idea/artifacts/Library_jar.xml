@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Library:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Library_jar</output-path>
+    <root id="archive" name="Library.jar">
+      <element id="module-output" name="Library" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../InterlliJ IDEA/JDBCDriver/mysql-connector-java-8.0.25.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/datepicker/datepicker.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Swing_Learn/af-swing/af-swing-1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
